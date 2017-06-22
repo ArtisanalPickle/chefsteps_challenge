@@ -1,8 +1,12 @@
 import React               from 'react'
 import { firebaseConnect } from 'react-redux-firebase'
+import RaisedButton        from 'material-ui/RaisedButton'
+import TextField           from 'material-ui/TextField'
 
 import generateEmails      from '../util/generateEmails'
 import dedupeEmails        from '../util/dedupeEmails'
+
+import './InputForm.css'
 
 class InputForm extends React.Component {
   
@@ -13,21 +17,35 @@ class InputForm extends React.Component {
 
   render() {
     return <div>
-      <input type="text" name="fname" placeholder='hi' />
-      <button onClick={() => {this.submitInput()}}>submit</button>
-      <div>Input Length: {this.state.generatedEmails.length}</div>
-      <br/>
-      <div>Deduped Length: {this.state.dedupedEmails.length}</div>
+      <TextField
+        className='text-field'
+        floatingLabelText="Leave a comment"
+        multiLine={true}
+        fullWidth={true}
+        rows={2}
+      />
+      <TextField
+        className='text-field'
+        fullWidth={true}
+        floatingLabelText="Number of emails to generate"/> 
+
+      <RaisedButton label="Go!" />
     </div>
   }
 
-  submitInput() {
+  submitInput(count) {
     let {firebase} = this.props
 
-    let emails = generateEmails(100000)
+    let startTime = new Date().getTime()
+    let emails = generateEmails(count)
     let dedupedEmails = dedupeEmails(emails)
-    //firebase.push('/results', {emailCount: 1000})
-    this.setState({generatedEmails: emails, dedupedEmails: dedupedEmails})
+    let endTime = new Date().getTime()
+    
+    firebase.push('/results', {
+      emailCount:    count,
+      dedupeCount:   dedupedEmails.length,
+      executionTime: endTime - startTime
+    })
   }
 
 }

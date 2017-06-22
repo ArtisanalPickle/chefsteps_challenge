@@ -1,4 +1,5 @@
-import dedupeEmails from './dedupeEmails'
+import dedupeEmails   from './dedupeEmails'
+import generateEmails from './generateEmails'
 
 describe('with duplicates', () => {
   it('should dedupe', () => {
@@ -21,3 +22,13 @@ describe('without duplicates', () => {
     expect(dedupedEmails.length).toEqual(emails.length)
   })
 })
+
+describe('with 100,000 emails', () => {
+  it('should take less than 1 second', () => {
+    let emails = generateEmails(100000)
+    let startTime = new Date().getTime()
+    dedupeEmails(emails)
+    let endTime = new Date().getTime()
+    expect(endTime - startTime).toBeLessThan(1000)
+  }) 
+}) 

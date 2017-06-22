@@ -1,0 +1,12 @@
+.components-results-list {
+  
+  display: flex;
+  flex-wrap: wrap;
+
+  .components-result {
+    max-width: 380px;
+
+    flex: 1 0 45%;
+    margin: 0 1em 1em 1em;
+  }
+}

@@ -1,15 +1,30 @@
 .components-result {
-  padding: 1.5em;
+  padding: 0 1.5em;
   color: #F0F0F0; }
   .components-result h1 {
     font-size: 11px;
     font-weight: 700;
-    line-height: 125%; }
+    line-height: 125%;
+    color: #9B9B9B;
+    padding: 0;
+    margin-top: 2em; }
   .components-result p {
     font-size: 16px;
     font-weight: 400i;
     color: #4A4A4A;
-    line-heigh: 110%; }
+    line-height: 110%; }
   .components-result .divider {
     height: 1px;
     background-color: #F0F0F0; }
+  .components-result .fields {
+    display: flex;
+    text-align: left; }
+    .components-result .fields ul {
+      padding: 0;
+      list-style-type: none;
+      margin-right: 1em; }
+      .components-result .fields ul li {
+        color: #9B9B9B;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 120%; }

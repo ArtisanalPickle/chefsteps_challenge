@@ -16,7 +16,9 @@ export default () => (
   <MuiThemeProvider>
     <Provider store={store}>
       <div>
+        <h1>INPUT</h1>
         <InputForm />
+        <h1>RESULTS</h1>
         <ResultsList />
       </div>
     </Provider>

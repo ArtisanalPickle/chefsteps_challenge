@@ -1,24 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { firebaseConnect, dataToJS, isLoaded } from 'react-redux-firebase'
+import { firebaseConnect, orderedToJS, isLoaded } from 'react-redux-firebase'
 import _ from 'lodash'
 
 import Result from './Result'
+
+import './ResultsList.css'
 
 class ResultsList extends React.Component {
 
   render() {
     let results = this.props.results
     return <div className='components-results-list'>
-      {isLoaded(results) ? _.map(results, (result, key) => (
-        <Result key={key} result={result} />
+      {isLoaded(results) ? _.map(_.reverse(_.values(results)), (result, i) => (
+        <Result key={i} result={result} />
       )) : null}
     </div>
   }
 
 }
 const reduxWrapped = connect(({firebase}) => ({
-  results: dataToJS(firebase, '/results')
+  results: orderedToJS(firebase, '/results')
 }))(ResultsList)
 
-export default firebaseConnect(['/results'])(reduxWrapped)
+export default firebaseConnect({path: '/results', queryParams: [ 'orderByChild=createdAt' ]})(reduxWrapped)

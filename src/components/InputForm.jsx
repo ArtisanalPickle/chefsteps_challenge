@@ -2,6 +2,7 @@ import React               from 'react'
 import { firebaseConnect } from 'react-redux-firebase'
 import RaisedButton        from 'material-ui/RaisedButton'
 import TextField           from 'material-ui/TextField'
+import Paper               from 'material-ui/Paper'
 
 import generateEmails      from '../util/generateEmails'
 import dedupeEmails        from '../util/dedupeEmails'
@@ -23,7 +24,7 @@ class InputForm extends React.Component {
   }
 
   render() {
-    return <div className='components-input-form'>
+    return <Paper className='components-input-form'>
       <TextField
         className='text-field'
         floatingLabelText="Leave a comment"
@@ -43,7 +44,7 @@ class InputForm extends React.Component {
         floatingLabelText="Number of emails to generate"/> 
 
       <RaisedButton onTouchTap={() => { this.submitInput() }} label="Go!" />
-    </div>
+    </Paper>
   }
 
   onEnterComment(comment) {
@@ -51,7 +52,7 @@ class InputForm extends React.Component {
   }
 
   validateComment(comment) {
-    if(!comment || comment.length == 0) {
+    if(!comment || comment.length === 0) {
       this.setState({commentError: 'Please enter a comment.'})
       return false
     }

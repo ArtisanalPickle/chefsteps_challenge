@@ -1,9 +1,9 @@
 export const firebase = {
-  apiKey: 'AIzaSyCTUERDM-Pchn_UDTsfhVPiwM4TtNIxots',
-  authDomain: 'redux-firebasev3.firebaseapp.com',
-  databaseURL: 'https://redux-firebasev3.firebaseio.com',
-  storageBucket: 'redux-firebasev3.appspot.com',
-  messagingSenderId: '823357791673'
+  apiKey: 'AIzaSyDr6Xhv_us6B6T4GtYyRgdh1KFIqgjx76Y',
+  authDomain: 'chefsteps-challenge.firebaseapp.com',
+  databaseURL: 'https://chefsteps-challenge.firebaseio.com',
+  storageBucket: 'chefsteps-challenge.appspot.com',
+  messagingSenderId: '199697807307'
 }
 
 export default { firebase }

@@ -1,0 +1,15 @@
+.components-result {
+  padding: 1.5em;
+  color: #F0F0F0; }
+  .components-result h1 {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 125%; }
+  .components-result p {
+    font-size: 16px;
+    font-weight: 400i;
+    color: #4A4A4A;
+    line-heigh: 110%; }
+  .components-result .divider {
+    height: 1px;
+    background-color: #F0F0F0; }
